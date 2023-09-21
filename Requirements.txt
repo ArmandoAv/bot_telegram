@@ -1,3 +1,5 @@
 googletrans==4.0.0rc1
 telepot
 urllib3==1.26.6
+
+Python 3.7.3
