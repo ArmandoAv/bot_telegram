@@ -1,0 +1,5 @@
+# The following file and directories aren't uploaded to git repository
+
+Notes.txt
+venv/
+src/__pycahe__
