@@ -10,4 +10,4 @@ Inside the bot you type the ```/newboot``` option and follow the steps indicated
 
 You can review the options if you need more options for your bot.
 
-When you start the bot, it displays the list of languages ​​that it can translate and how it should be written so that it can perform the translations.
+When you start the bot ```python Bot_Telegram.py``` and then when you start a chat whit the bot on Telegram, it displays the list of languages ​​that it can translate and how it should be written so that it can perform the translations.
