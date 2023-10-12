@@ -13,19 +13,30 @@ def handler(msg):
     message = msg['text']
 
     try:
+        # Languages description list
+        # If you want to add more languages, you must to add here because
+        # this list is displayed in the telegram bot as a guide to be able
+        # to translate into other languages besides English 
+        desc_lang = [
+                        'To Es: to translate into Spanish',
+                        'To Uk: to translate into Ukranian',
+                        'To Fr: to translate into French',
+                        'To De: to translate into German',
+                        'To Ru: to translate into Russian',
+                        'To It: to translate into Italian',
+                    ]
+
+        # Display the list en several lines
+        desc_lang_items = '\n'.join(map(str, desc_lang))
+
         # The bot's startup message
         if message[0:6] == "/start":
             bot.sendMessage (chatId, "Welcome! I am the bot Translator\n\n" \
                 "If you want to translate a text into English, please write\n" \
                 "To En: and the text you want to translate\n\n" \
                 "If you want to translate a text into other languages, please write\n\n" \
-                "To Es: to translate into Spanish\n" \
-                "To Uk: to translate into Ukranian\n" \
-                "To Fr: to translate into French\n" \
-                "To De: to translate into German\n" \
-                "To Ru: to translate into Russian\n" \
-                "To It: to translate into Italian\n\n" \
-                "For example,\n" \
+               f"{desc_lang_items}" \
+                "\n\nFor example,\n" \
                 "To Es: Hi. How are you? \n" \
                 "I will return\n" \
                 "Hola. ¿Cómo estas?")
