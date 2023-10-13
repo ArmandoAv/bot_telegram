@@ -20,34 +20,20 @@ def handler(msg):
         # You can check others languages at the following link
         # https://gist.github.com/ivansaul/97058b5c07431911427db68bcbdbc92c
         desc_lang = [
-                        'To Es: to translate into Spanish',
-                        'To Uk: to translate into Ukranian',
-                        'To Fr: to translate into French',
-                        'To De: to translate into German',
-                        'To Ru: to translate into Russian',
-                        'To It: to translate into Italian',
+                        'To Es: and text to translate into Spanish',
+                        'To Uk: and text to translate into Ukranian',
+                        'To Fr: and text to translate into French',
+                        'To De: and text to translate into German',
+                        'To Ru: and text to translate into Russian',
+                        'To It: and text to translate into Italian',
                     ]
 
         # Display the list in several lines
         desc_lang_items = '\n'.join(map(str, desc_lang))
 
-        # The bot's startup message
-        if message[0:6] == "/start":
-            bot.sendMessage (chatId, "Welcome! I am the bot Translator\n\n" \
-                "If you want to translate a text into English, please write\n" \
-                "To En: and the text you want to translate\n\n" \
-                "If you want to translate a text into other languages, please write\n\n" \
-               f"{desc_lang_items}" \
-                "\n\nFor example,\n" \
-                "To Es: Hi. How are you? \n" \
-                "I will return\n" \
-                "Hola. ¿Cómo estas?")
-        
         # Languages list
         # If you want to add more languages, you must add them here because
         # this list contains the commands to translate to the telegram bot 
-        # languages. You can check others languages at the following link
-        # https://gist.github.com/ivansaul/97058b5c07431911427db68bcbdbc92c
         langs_list=['To En:', 'To Es:', 'To Uk:', 'To Fr:', 'To De:', 'To Ru:', 'To It:']
 
         # Variables to validate the language to be translate
@@ -57,13 +43,30 @@ def handler(msg):
         new_lang = val_lang[-3:-1]
         items = '\n'.join(map(str, langs_list))
 
+        # The bot's startup message
+        if val_lang == "/start":
+            bot.sendMessage (chatId, "Welcome! I am a bot Translator\n\n" \
+                "If you want to translate a text into English, please write\n\n" \
+                "To En: and the text you want to translate\n\n" \
+                "If you want to translate a text into other languages, please write\n\n" \
+               f"{desc_lang_items}" \
+                "\n\nFor example, if you write\n" \
+                "To Es: Hi. How are you? \n" \
+                "I will return\n" \
+                "Hola. ¿Cómo estas?")
+
         # Languages to translate
-        if val_lang in lang_list_lower:
+        elif val_lang in lang_list_lower:
             translation = translator.translate(message[6:], dest = new_lang)
             bot.sendMessage(chatId, translation.text)
 
         else:
-            new_message = f"Remember. I can't translate if you don't first write the language you want to translate \n{items}"
+            new_message = "Remember. I can't translate if you don't first " \
+                          "write the language you want to translate \n" \
+                         f"{items}" \
+                          "\n\nIf you need to see the descriptions again " \
+                          "just type \n" \
+                          "/start"
             bot.sendMessage(chatId, new_message)
 
     except Exception as error:
@@ -73,8 +76,7 @@ def handler(msg):
 bot = telepot.Bot(TOKEN)      
 
 # Running the bot
-MessageLoop(bot,handler).run_as_thread()
+MessageLoop(bot, handler).run_as_thread()
 
 while True:
     time.sleep(10)
-
