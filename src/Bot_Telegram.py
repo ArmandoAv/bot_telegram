@@ -59,7 +59,7 @@ def handler(msg):
             bot.sendMessage(chatId, translation.text)
 
         else:
-            new_message = f"Remember. I can't translate if you don't first write the lenguage you want to translate \n{items}"
+            new_message = f"Remember. I can't translate if you don't first write the language you want to translate \n{items}"
             bot.sendMessage(chatId, new_message)
 
     except Exception as error:
