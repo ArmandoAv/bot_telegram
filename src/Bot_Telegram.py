@@ -14,9 +14,11 @@ def handler(msg):
 
     try:
         # Languages description list
-        # If you want to add more languages, you must to add here because
+        # If you want to add more languages, you must add them here because
         # this list is displayed in the telegram bot as a guide to be able
-        # to translate into other languages besides English 
+        # to translate into other languages besides English. 
+        # You can check others languages at the following link
+        # https://gist.github.com/ivansaul/97058b5c07431911427db68bcbdbc92c
         desc_lang = [
                         'To Es: to translate into Spanish',
                         'To Uk: to translate into Ukranian',
@@ -26,7 +28,7 @@ def handler(msg):
                         'To It: to translate into Italian',
                     ]
 
-        # Display the list en several lines
+        # Display the list in several lines
         desc_lang_items = '\n'.join(map(str, desc_lang))
 
         # The bot's startup message
@@ -42,7 +44,9 @@ def handler(msg):
                 "Hola. ¿Cómo estas?")
         
         # Languages list
-        # If you want to add more languages, you can check them at the following link
+        # If you want to add more languages, you must add them here because
+        # this list contains the commands to translate to the telegram bot 
+        # languages. You can check others languages at the following link
         # https://gist.github.com/ivansaul/97058b5c07431911427db68bcbdbc92c
         langs_list=['To En:', 'To Es:', 'To Uk:', 'To Fr:', 'To De:', 'To Ru:', 'To It:']
 
@@ -68,7 +72,9 @@ def handler(msg):
 # Token ID from config file
 bot = telepot.Bot(TOKEN)      
 
+# Running the bot
 MessageLoop(bot,handler).run_as_thread()
 
 while True:
     time.sleep(10)
+
