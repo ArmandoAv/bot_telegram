@@ -35,7 +35,7 @@ def handler(msg):
         # Create language list from languages description list
         # This list contains the commands to translate in the telegram bot
         # 'To En:', 'To Es:', ..., 'To It:' 
-        langs_list=[]
+        langs_list=['To En:']
 
         for i in range(len(desc_lang)):
             langs_list.append(desc_lang[i][0:6])
