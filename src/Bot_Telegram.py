@@ -14,11 +14,12 @@ def handler(msg):
 
     try:
         # Languages description list
-        # If you want to add more languages, you must add them here because
-        # this list is displayed in the telegram bot as a guide to be able
-        # to translate into other languages besides English. 
+        # If you want to add more languages, you must add them here 
         # You can check others languages at the following link
         # https://gist.github.com/ivansaul/97058b5c07431911427db68bcbdbc92c
+        # If you want to add Japanese you have to look for its ASCII code
+        # in this case it's 'ja' so it must be added to the list the new item
+        # 'To Ja: and text to translate into Japanese',
         desc_lang = [
                         'To Es: and text to translate into Spanish',
                         'To Uk: and text to translate into Ukranian',
@@ -31,10 +32,13 @@ def handler(msg):
         # Display the list in several lines
         desc_lang_items = '\n'.join(map(str, desc_lang))
 
-        # Languages list
-        # If you want to add more languages, you must add them here because
-        # this list contains the commands to translate to the telegram bot 
-        langs_list=['To En:', 'To Es:', 'To Uk:', 'To Fr:', 'To De:', 'To Ru:', 'To It:']
+        # Create language list from languages description list
+        # This list contains the commands to translate in the telegram bot
+        # 'To En:', 'To Es:', ..., 'To It:' 
+        langs_list=[]
+
+        for i in range(len(desc_lang)):
+            langs_list.append(desc_lang[i][0:6])
 
         # Variables to validate the language to be translate
         conv_lower = map(lambda x: x.lower(), langs_list)
