@@ -1,6 +1,6 @@
 import telepot
 import time
-from Config import TOKEN
+import os
 from telepot.loop import MessageLoop
 from googletrans import Translator
 
@@ -76,8 +76,9 @@ def handler(msg):
     except Exception as error:
         print(f"The error is: {error}")
 
-# Token ID from config file
-bot = telepot.Bot(TOKEN)      
+# Token ID from environment variable
+token = os.environ.get('TOKEN')
+bot = telepot.Bot(token)      
 
 # Running the bot
 MessageLoop(bot, handler).run_as_thread()
