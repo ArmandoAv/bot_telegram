@@ -1,6 +1,7 @@
 import telepot
 import time
 import os
+#from Config import TOKEN
 from telepot.loop import MessageLoop
 from googletrans import Translator
 
@@ -78,7 +79,10 @@ def handler(msg):
 
 # Token ID from environment variable
 token = os.environ.get('TOKEN')
-bot = telepot.Bot(token)      
+bot = telepot.Bot(token)
+
+# Token ID from config file
+#bot = telepot.Bot(TOKEN)
 
 # Running the bot
 MessageLoop(bot, handler).run_as_thread()
