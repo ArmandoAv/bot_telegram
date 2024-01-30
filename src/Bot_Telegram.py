@@ -65,7 +65,7 @@ def handler(msg):
                 "\n\nFor example, if you write\n" \
                 "To Es: Hi. How are you? \n" \
                 "I will return\n" \
-                "Hola. ¿Cómo estas?")
+                "Hola. ¿Cómo estás?")
 
         # Languages to translate
         elif val_lang in lang_list_lower:
