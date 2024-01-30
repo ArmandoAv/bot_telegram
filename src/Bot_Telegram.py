@@ -1,6 +1,13 @@
+######################################
+# This file can take a Token ID from #
+# a file or an environment variable  #
+######################################
+
 import telepot
 import time
+# Token ID from environment variable
 import os
+# Token ID from config file
 #from Config import TOKEN
 from telepot.loop import MessageLoop
 from googletrans import Translator
@@ -81,7 +88,7 @@ def handler(msg):
 token = os.environ.get('TOKEN')
 bot = telepot.Bot(token)
 
-# Token ID from config file
+# Token ID from Config file
 #bot = telepot.Bot(TOKEN)
 
 # Running the bot
